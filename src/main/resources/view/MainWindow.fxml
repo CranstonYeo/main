@@ -11,6 +11,8 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Label?>
 <fx:root type="javafx.stage.Stage" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
          title="Address App" minWidth="450" minHeight="600" onCloseRequest="#handleExit">
   <icons>
@@ -46,12 +48,36 @@
           </padding>
         </StackPane>
 
-        <VBox fx:id="personList" styleClass="pane-with-border" minWidth="340" prefWidth="340" VBox.vgrow="ALWAYS">
-          <padding>
-            <Insets top="10" right="10" bottom="10" left="10" />
-          </padding>
-          <StackPane fx:id="personListPanelPlaceholder" VBox.vgrow="ALWAYS"/>
-        </VBox>
+        <HBox>
+          <children>
+            <VBox fx:id="personList" styleClass="pane-with-border" HBox.hgrow="ALWAYS">
+              <padding>
+                <Insets bottom="20.0" left="15.0" right="15.0" top="15.0" />
+              </padding>
+              <StackPane fx:id="personListPanelPlaceholder" VBox.vgrow="ALWAYS" HBox.hgrow="ALWAYS"  maxWidth="Infinity"/>
+            </VBox>
+            <HBox fx:id="ReminderList" alignment="BOTTOM_RIGHT" styleClass="pane-with-border">
+              <children>
+                <VBox>
+                  <children>
+                    <Label alignment="CENTER_RIGHT" style="-fx-font-size: 16; -fx-font-weight: bold; -fx-font-style: italic; -fx-text-fill: #a8a8a8 #a8a8a8;" text="Your Reminders" textAlignment="RIGHT" textFill="WHITE" VBox.vgrow="NEVER">
+                      <VBox.margin>
+                        <Insets bottom="5.0" />
+                      </VBox.margin>
+                    </Label>
+                    <StackPane fx:id="ReminderListPanelPlaceholder"/>
+                  </children>
+                </VBox>
+              </children>
+              <padding>
+                <Insets bottom="20.0" left="15.0" right="15.0" top="15.0" />
+              </padding>
+            </HBox>
+          </children>
+          <VBox.margin>
+            <Insets />
+          </VBox.margin>
+        </HBox>
 
         <StackPane fx:id="statusbarPlaceholder" VBox.vgrow="NEVER" />
       </VBox>
